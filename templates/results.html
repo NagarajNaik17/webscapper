@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='results.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>📘 Wikipedia Summary</h2>
+    <p>{{ wiki_summary }}</p>
+    {% if wiki_url %}
+      <a href="{{ wiki_url }}" target="_blank">Read on Wikipedia</a>
+    {% endif %}
+
+    <hr>
+
+    <h2>📰 Related Articles</h2>
+    {% for result in results %}
+      <div class="article">
+        <h3>{{ result.title }}</h3>
+        <p>{{ result.summary }}</p>
+        <a href="{{ result.link }}" target="_blank">Read Full Article →</a>
+      </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

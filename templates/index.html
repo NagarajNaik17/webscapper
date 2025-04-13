@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Search</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🔎 Smart Search</h1>
+    <form action="/results" method="post" onsubmit="showLoader()">
+      <input type="text" name="query" placeholder="e.g., Virat Kohli, current news, Bengaluru" required>
+      <button type="submit">Search</button>
+    </form>
+    <div id="loader" class="loader-container">
+      <div class="loader"></div>
+      <p>Scraping articles, please wait...</p>
+    </div>
+  </div>
+
+  <script>
+    function showLoader() {
+      document.querySelector('.loader-container').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>
